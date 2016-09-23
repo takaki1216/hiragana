@@ -1,0 +1,26 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	display: flex;
+	#menu {
+		flex: 2;
+		ul {
+			list-style: none;
+		}
+	}
+	#content-wrapper {
+		flex: 8;
+		ul {
+			list-style: none;
+			li {
+				.hiragana-text {
+					font-size: 70px;
+				}
+			}
+		}
+	}
+}
+
