@@ -19,10 +19,11 @@ function onDeviceReady() {
 		audioInstanceObj[note].play();
 	});
 }
+var id = 1;
 var hiraganaArr = [
 	// あ
 	{
-		id: 1,
+		id: id++,
 		hiragana: 'あ',
 		vowel: null,
 		consonant: 'a',
@@ -30,7 +31,7 @@ var hiraganaArr = [
 		sound: 'a',
 	},
 	{
-		id: 2,
+		id: id++,
 		hiragana: 'い',
 		vowel: null,
 		consonant: 'i',
@@ -38,7 +39,7 @@ var hiraganaArr = [
 		sound: 'i',
 	},
 	{
-		id: 3,
+		id: id++,
 		hiragana: 'う',
 		vowel: null,
 		consonant: 'u',
@@ -46,7 +47,7 @@ var hiraganaArr = [
 		sound: 'u',
 	},
 	{
-		id: 4,
+		id: id++,
 		hiragana: 'え',
 		vowel: null,
 		consonant: 'e',
@@ -54,7 +55,7 @@ var hiraganaArr = [
 		sound: 'e',
 	},
 	{
-		id: 5,
+		id: id++,
 		hiragana: 'お',
 		vowel: null,
 		consonant: 'o',
@@ -64,7 +65,7 @@ var hiraganaArr = [
 
 	// か
 	{
-		id: 6,
+		id: id++,
 		hiragana: 'か',
 		vowel: 'k',
 		consonant: 'a',
@@ -72,7 +73,7 @@ var hiraganaArr = [
 		sound: 'ka',
 	},
 	{
-		id: 7,
+		id: id++,
 		hiragana: 'き',
 		vowel: 'k',
 		consonant: 'i',
@@ -80,7 +81,7 @@ var hiraganaArr = [
 		sound: 'ki',
 	},
 	{
-		id: 8,
+		id: id++,
 		hiragana: 'く',
 		vowel: 'k',
 		consonant: 'u',
@@ -88,7 +89,7 @@ var hiraganaArr = [
 		sound: 'ku',
 	},
 	{
-		id: 9,
+		id: id++,
 		hiragana: 'け',
 		vowel: 'k',
 		consonant: 'e',
@@ -96,12 +97,96 @@ var hiraganaArr = [
 		sound: 'ke',
 	},
 	{
-		id: 10,
+		id: id++,
 		hiragana: 'こ',
 		vowel: 'k',
 		consonant: 'o',
 		symbolArr: [{name: 'こま', img: 'top', sound: 'top', }, ],
 		sound: 'ko',
+	},
+
+	// さ
+	{
+		id: id++,
+		hiragana: 'さ',
+		vowel: 's',
+		consonant: 'a',
+		symbolArr: [{name: 'さかな', img: 'fish', sound: 'fish', }, {name: 'さる', img: 'monkey', sound: 'monkey', } ],
+		sound: 'sa',
+	},
+	{
+		id: id++,
+		hiragana: 'し',
+		vowel: 's',
+		consonant: 'i',
+		symbolArr: [{name: 'しま', img: 'island', sound: 'island', }, {name: 'しまうま', img: 'zebra', sound: 'zebra', }, ],
+		sound: 'si',
+	},
+	{
+		id: id++,
+		hiragana: 'す',
+		vowel: 's',
+		consonant: 'u',
+		symbolArr: [{name: 'すいか', img: 'watermelon', sound: 'watermelon', }, {name: 'すず', img: 'bell', sound: 'bell', }, ],
+		sound: 'su',
+	},
+	{
+		id: id++,
+		hiragana: 'せ',
+		vowel: 's',
+		consonant: 'e',
+		symbolArr: [{name: 'せりか', img: 'celica', sound: 'celica', }, {name: '洗濯機', img: 'washingMachine', sound: 'washingMachine', }, ],
+		sound: 'se',
+	},
+	{
+		id: id++,
+		hiragana: 'そ',
+		vowel: 's',
+		consonant: 'o',
+		symbolArr: [{name: 'そうじき', img: 'hoover', sound: 'hoover', }, ],
+		sound: 'so',
+	},
+
+	// た
+	{
+		id: id++,
+		hiragana: 'た',
+		vowel: 't',
+		consonant: 'a',
+		symbolArr: [{name: 'たぬき', img: 'racoon', sound: 'racoon', }, {name: 'たわし', img: 'brash', sound: 'brash', } ],
+		sound: 'ta',
+	},
+	{
+		id: id++,
+		hiragana: 'ち',
+		vowel: 't',
+		consonant: 'i',
+		symbolArr: [{name: 'ちきゅう', img: 'earth', sound: 'earth', }, {name: 'ちゅーりっぷ', img: 'tulip', sound: 'tulip', }, ],
+		sound: 'ti',
+	},
+	{
+		id: id++,
+		hiragana: 'つ',
+		vowel: 't',
+		consonant: 'u',
+		symbolArr: [{name: 'つめ', img: 'nail', sound: 'nail', }, {name: 'つらら', img: 'icicle', sound: 'icicle', }, ],
+		sound: 'tu',
+	},
+	{
+		id: id++,
+		hiragana: 'て',
+		vowel: 't',
+		consonant: 'e',
+		symbolArr: [{name: 'て', img: 'hand', sound: 'hand', }, {name: 'てっぽう', img: 'gun', sound: 'gun', }, ],
+		sound: 'te',
+	},
+	{
+		id: id++,
+		hiragana: 'と',
+		vowel: 't',
+		consonant: 'o',
+		symbolArr: [{name: 'とまと', img: 'tomato', sound: 'tomato', }, ],
+		sound: 'to',
 	},
 
 ];
