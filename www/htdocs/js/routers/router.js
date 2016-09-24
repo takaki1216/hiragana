@@ -1,0 +1,1 @@
+define(["jquery","backbone"],function(e,n){var o=n.Router.extend({routes:{"":"top",sequential:"sequential"},sequential:function(e){console.log("[router sequential]"),require(["views/sequential"],function(e){new e})},top:function(){console.log("[router top]")}});return o});

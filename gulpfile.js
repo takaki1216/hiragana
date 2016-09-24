@@ -9,6 +9,7 @@ var pleeease = require('gulp-pleeease');
 
 // sassのコンパイル
 gulp.task('sass', function() {
+  // return sass('gulp/sass/**/*.scss')
   return sass('gulp/sass/**/*.scss')
     .pipe(plumber())
     .pipe(pleeease({ // 追記
@@ -30,7 +31,7 @@ gulp.task('sass', function() {
 gulp.task('js', function() {
   return gulp.src('gulp/js/**/*.js')
     .pipe(plumber())
-    .pipe(concat('main.js'))
+    // .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(gulp.dest('www/htdocs/js'));
 });

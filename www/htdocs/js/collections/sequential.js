@@ -1,0 +1,1 @@
+define(["backbone","models/hiragana"],function(n,e){var i=n.Collection.extend({initialize:function(){console.log("[SequentialCollection init]")}});return i});

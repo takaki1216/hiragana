@@ -22,10 +22,12 @@
             </ul>
         </div>
 
+        <script type="text/template" id="tpl-sequentialview">
+            name: <%= name %><br>
+            age: <%= age %>
+        </script>
+
         <script src="cordova.js"></script>
-        <script type="text/javascript" src="htdocs/js/lib/jquery-3.1.0.js"></script>
-        <script type="text/javascript" src="htdocs/js/lib/jquery/flexslider-min.js"></script>
-        <script type="text/javascript" src="htdocs/js/lib/underscore-min.js"></script>
-        <script type="text/javascript" src="htdocs/js/main.js"></script>
+        <script type="text/javascript" src="htdocs/js/require.js" data-main="htdocs/js/app.js"></script>
     </body>
 </html>

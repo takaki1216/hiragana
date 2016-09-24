@@ -1,0 +1,1 @@
+define(["backbone","models/hiragana"],function(e,t){var i=e.View.extend({el:"#slider-holder",tagName:"li",template:_.template($("#tpl-sequentialview").html()),initialize:function(){console.log("[SequentialView init]"),this.model=new t,console.log(this.model),this.render()},render:function(){var e=this.template(this.model.toJSON());this.$el.html(e)}});return i});

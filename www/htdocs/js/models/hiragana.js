@@ -1,0 +1,1 @@
+define(["backbone"],function(n){var e=n.Model.extend({initialize:function(){console.log("[HiraganaModel init]")},defaults:{name:"John",age:33}});return e});
