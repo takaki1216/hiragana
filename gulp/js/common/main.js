@@ -118,9 +118,18 @@ $('#menu li').click(function() {
 			dispArr = _.shuffle(hiraganaArr);
 			break;
 	}
-	$('#slider-holder').html('');
-	_.each(dispArr, function(hiragana, key){
+	var $sliderHolder = $('#slider-holder');
+	$sliderHolder.html('');
+	_.each(dispArr.reverse(), function(hiragana, key){
 		var square = '<div> <div class="hiragana-text">' + hiragana.hiragana + '</div> <div class="symbol">' + _.shuffle(hiragana.symbolArr)[0].name + '</div> </div> ';
 		$('#slider-holder').append('<li>' + square);
 	});
+	$('#content-wrapper').flexslider({
+		animation: 'slide',
+		slideshow: false,
+		controlNav: false,
+		directionNav: false,
+		startAt: dispArr.length - 1,
+	});
+
 });
