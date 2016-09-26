@@ -189,6 +189,90 @@ var hiraganaArr = [
 		sound: 'to',
 	},
 
+	// な
+	{
+		id: id++,
+		hiragana: 'な',
+		vowel: 'n',
+		consonant: 'a',
+		symbolArr: [{name: 'なす', img: 'eggplant', sound: 'eggplant', }, {name: 'ながぐつ', img: 'boot', sound: 'boot', } ],
+		sound: 'na',
+	},
+	{
+		id: id++,
+		hiragana: 'に',
+		vowel: 'n',
+		consonant: 'i',
+		symbolArr: [{name: 'にっぽん', img: 'japan', sound: 'japan', }, {name: 'にんじん', img: 'carrot', sound: 'carrot', }, ],
+		sound: 'ni',
+	},
+	{
+		id: id++,
+		hiragana: 'ぬ',
+		vowel: 'n',
+		consonant: 'u',
+		symbolArr: [{name: 'ぬの', img: 'cloth', sound: 'cloth', }, {name: 'ぬりえ', img: 'coloring', sound: 'coloring', }, ],
+		sound: 'nu',
+	},
+	{
+		id: id++,
+		hiragana: 'ね',
+		vowel: 'n',
+		consonant: 'e',
+		symbolArr: [{name: 'ねこ', img: 'cat', sound: 'cat', }, {name: 'ねんど', img: 'clay', sound: 'clay', }, ],
+		sound: 'ne',
+	},
+	{
+		id: id++,
+		hiragana: 'の',
+		vowel: 'n',
+		consonant: 'o',
+		symbolArr: [{name: 'のり', img: 'glue', sound: 'glue', }, ],
+		sound: 'no',
+	},
+
+	// は
+	{
+		id: id++,
+		hiragana: 'は',
+		vowel: 'h',
+		consonant: 'a',
+		symbolArr: [{name: 'はがき', img: 'hagaki', sound: 'hagaki', }, {name: 'はぶらし', img: 'toothbrush', sound: 'toothbrush', } ],
+		sound: 'ha',
+	},
+	{
+		id: id++,
+		hiragana: 'ひ',
+		vowel: 'h',
+		consonant: 'i',
+		symbolArr: [{name: 'ひまわり', img: 'sunflower', sound: 'sunflower', }, {name: 'ひこうき', img: 'airplane', sound: 'airplane', }, ],
+		sound: 'hi',
+	},
+	{
+		id: id++,
+		hiragana: 'ふ',
+		vowel: 'h',
+		consonant: 'u',
+		symbolArr: [{name: 'ふで', img: 'brush', sound: 'brush', }, {name: 'ふうせん', img: 'balloon', sound: 'balloon', }, ],
+		sound: 'hu',
+	},
+	{
+		id: id++,
+		hiragana: 'へ',
+		vowel: 'h',
+		consonant: 'e',
+		symbolArr: [{name: 'へりこぷたー', img: 'helicopter', sound: 'helicopter', }, {name: 'へび', img: 'snake', sound: 'snake', }, ],
+		sound: 'he',
+	},
+	{
+		id: id++,
+		hiragana: 'ほ',
+		vowel: 'h',
+		consonant: 'o',
+		symbolArr: [{name: 'ほん', img: 'book', sound: 'book', }, ],
+		sound: 'ho',
+	},
+
 ];
 
 $('#menu li').click(function() {
