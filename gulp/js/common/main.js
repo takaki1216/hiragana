@@ -273,6 +273,48 @@ var hiraganaArr = [
 		sound: 'ho',
 	},
 
+	// ま
+	{
+		id: id++,
+		hiragana: 'ま',
+		vowel: 'm',
+		consonant: 'a',
+		symbolArr: [{name: 'ますく', img: 'mask', sound: 'mask', }, {name: 'まいく', img: 'mic', sound: 'mic', } ],
+		sound: 'ma',
+	},
+	{
+		id: id++,
+		hiragana: 'み',
+		vowel: 'm',
+		consonant: 'i',
+		symbolArr: [{name: 'みかん', img: 'mikan', sound: 'mikan', }, {name: 'みみ', img: 'ear', sound: 'ear', }, ],
+		sound: 'mi',
+	},
+	{
+		id: id++,
+		hiragana: 'む',
+		vowel: 'm',
+		consonant: 'u',
+		symbolArr: [{name: 'むし', img: 'bug', sound: 'bug', }, ],
+		sound: 'mu',
+	},
+	{
+		id: id++,
+		hiragana: 'め',
+		vowel: 'm',
+		consonant: 'e',
+		symbolArr: [{name: 'めがね', img: 'glasses', sound: 'glasses', }, {name: 'めだか', img: 'medaka', sound: 'medaka', }, ],
+		sound: 'me',
+	},
+	{
+		id: id++,
+		hiragana: 'も',
+		vowel: 'm',
+		consonant: 'o',
+		symbolArr: [{name: 'もり', img: 'forest', sound: 'forest', }, ],
+		sound: 'mo',
+	},
+
 ];
 
 $('#menu li').click(function() {
