@@ -1,24 +1,5 @@
 console.debug('main.js');
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-    var _pathName = '.';
-    if(device.platform.toLowerCase() == 'android') {
-      _pathName = '/android_asset/www';
-    }
-	var audioInstanceObj = {
-		c: new Media(_pathName + '/htdocs/sounds/c.mp3'),
-		cs: new Media(_pathName + '/htdocs/sounds/cs.mp3'),
-		d: new Media(_pathName + '/htdocs/sounds/d.mp3'),
-		ds: new Media(_pathName + '/htdocs/sounds/ds.mp3'),
-		e: new Media(_pathName + '/htdocs/sounds/e.mp3'),
-	};
-
-	$('.play').on('click', function() {
-		var note = $(this).data('note');
-		audioInstanceObj[note].play();
-	});
-}
 var id = 1;
 var hiraganaArr = [
 	// あ
@@ -317,30 +298,57 @@ var hiraganaArr = [
 
 ];
 
-$('#menu li').click(function() {
-	var mode = $(this).data('mode');
-	var dispArr = [];
-	switch(true) {
-		case 'sequential' === mode:
-			dispArr = hiraganaArr;
-			break;
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
 
-		case 'random' === mode:
-			dispArr = _.shuffle(hiraganaArr);
-			break;
-	}
-	var $sliderHolder = $('#slider-holder');
-	$sliderHolder.html('');
-	_.each(dispArr.reverse(), function(hiragana, key){
-		var square = '<div> <div class="hiragana-text">' + hiragana.hiragana + '</div> <div class="symbol">' + _.shuffle(hiragana.symbolArr)[0].name + '</div> </div> ';
-		$('#slider-holder').append('<li>' + square);
-	});
-	$('#content-wrapper').flexslider({
-		animation: 'slide',
-		slideshow: false,
-		controlNav: false,
-		directionNav: false,
-		startAt: dispArr.length - 1,
+	$('#menu li').click(function() {
+		var mode = $(this).data('mode');
+		var dispArr = [];
+		switch(true) {
+			case 'sequential' === mode:
+				dispArr = hiraganaArr;
+				break;
+
+			case 'random' === mode:
+				dispArr = _.shuffle(hiraganaArr);
+				break;
+		}
+		var $sliderHolder = $('#slider-holder');
+		$sliderHolder.html('');
+		_.each(dispArr.reverse(), function(hiragana, key){
+			var rect = '<div> <div class="hiragana-text" data-sound="' + hiragana.sound + '">' + hiragana.hiragana + '</div> <div class="symbol">' + _.shuffle(hiragana.symbolArr)[0].name + '</div> </div> ';
+			$('#slider-holder').append('<li>' + rect);
+		});
+		$('.hiragana-text').click(function() {
+			console.log($(this).data('sound'));
+		});
+		$('#content-wrapper').flexslider({
+			animation: 'slide',
+			slideshow: false,
+			controlNav: false,
+			directionNav: false,
+			startAt: dispArr.length - 1,
+		});
 	});
 
-});
+    var _pathName = '.';
+    if(device.platform.toLowerCase() == 'android') {
+      _pathName = '/android_asset/www';
+    }
+	var audioInstanceObj = {
+		// c: new Media(_pathName + '/htdocs/sounds/c.mp3'),
+		// cs: new Media(_pathName + '/htdocs/sounds/cs.mp3'),
+		// d: new Media(_pathName + '/htdocs/sounds/d.mp3'),
+		// ds: new Media(_pathName + '/htdocs/sounds/ds.mp3'),
+		// e: new Media(_pathName + '/htdocs/sounds/e.mp3'),
+	};
+
+	_.each(hiraganaArr, function(hiragana) {
+
+	});
+
+	$('.play').on('click', function() {
+		var note = $(this).data('note');
+		audioInstanceObj[note].play();
+	});
+}
