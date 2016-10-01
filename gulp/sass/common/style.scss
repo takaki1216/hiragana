@@ -13,11 +13,16 @@ body {
 	}
 	#content-wrapper {
 		flex: 8;
-		ul {
-			list-style: none;
-			li {
-				.hiragana-text {
-					font-size: 70px;
+		.flex-viewport {
+			width: 200px;
+			margin: 0 auto;
+			text-align: center;
+			ul {
+				list-style: none;
+				li {
+					.hiragana-text {
+						font-size: 140px;
+					}
 				}
 			}
 		}

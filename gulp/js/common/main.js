@@ -300,9 +300,14 @@ var hiraganaArr = [
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
-
+console.log('device ready');
 	$('#menu li').click(function() {
 		var mode = $(this).data('mode');
+		var audioInstanceObj = {};
+	    var _pathName = '.';
+	    if(device.platform.toLowerCase() == 'android') {
+	      _pathName = '/android_asset/www';
+	    }
 		var dispArr = [];
 		switch(true) {
 			case 'sequential' === mode:
@@ -316,11 +321,20 @@ function onDeviceReady() {
 		var $sliderHolder = $('#slider-holder');
 		$sliderHolder.html('');
 		_.each(dispArr.reverse(), function(hiragana, key){
+			// 表示
 			var rect = '<div> <div class="hiragana-text" data-sound="' + hiragana.sound + '">' + hiragana.hiragana + '</div> <div class="symbol">' + _.shuffle(hiragana.symbolArr)[0].name + '</div> </div> ';
 			$('#slider-holder').append('<li>' + rect);
+
+			// andio instance用意
+			audioInstanceObj[hiragana.sound] = new Media(_pathName + '/htdocs/sounds/' + hiragana.sound + '.wav');
 		});
+
+		// todo 仕上げる
+		// ひらがなをタップしたときの挙動
 		$('.hiragana-text').click(function() {
 			console.log($(this).data('sound'));
+			var sound = $(this).data('sound');
+			audioInstanceObj[sound].play();
 		});
 		$('#content-wrapper').flexslider({
 			animation: 'slide',
@@ -329,26 +343,5 @@ function onDeviceReady() {
 			directionNav: false,
 			startAt: dispArr.length - 1,
 		});
-	});
-
-    var _pathName = '.';
-    if(device.platform.toLowerCase() == 'android') {
-      _pathName = '/android_asset/www';
-    }
-	var audioInstanceObj = {
-		// c: new Media(_pathName + '/htdocs/sounds/c.mp3'),
-		// cs: new Media(_pathName + '/htdocs/sounds/cs.mp3'),
-		// d: new Media(_pathName + '/htdocs/sounds/d.mp3'),
-		// ds: new Media(_pathName + '/htdocs/sounds/ds.mp3'),
-		// e: new Media(_pathName + '/htdocs/sounds/e.mp3'),
-	};
-
-	_.each(hiraganaArr, function(hiragana) {
-
-	});
-
-	$('.play').on('click', function() {
-		var note = $(this).data('note');
-		audioInstanceObj[note].play();
 	});
 }
