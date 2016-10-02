@@ -116,7 +116,7 @@ var hiraganaArr = [
 		hiragana: 'せ',
 		vowel: 's',
 		consonant: 'e',
-		symbolArr: [{name: 'せりか', img: 'celica', sound: 'celica', }, {name: '洗濯機', img: 'washingMachine', sound: 'washingMachine', }, ],
+		symbolArr: [{name: 'せりか', img: 'celica', sound: 'celica', }, {name: 'せんたくき', img: 'washingMachine', sound: 'washingMachine', }, ],
 		sound: 'se',
 	},
 	{
