@@ -301,7 +301,7 @@ var hiraganaArr = [
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 console.log('device ready');
-	$('#menu li').click(function() {
+	$('#menu li:not(.refresh)').click(function() {
 		var mode = $(this).data('mode');
 		var audioInstanceObj = {};
 	    var _pathName = '.';
@@ -343,5 +343,12 @@ console.log('device ready');
 			directionNav: false,
 			startAt: dispArr.length - 1,
 		});
+		setTimeout(function() {
+			$('.flex-viewport').trigger('click');
+		}, 300);
+	});
+
+	$('.reload').click(function() {
+		window.location.reload();
 	});
 }

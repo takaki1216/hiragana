@@ -8,7 +8,7 @@
         T. Himeno
     </author>
     <content src="index.html" />
-    <preference name="Orientation" value="landscape" />
+    <preference name="Orientation" value="portrait" />
     <preference name="DisallowOverscroll" value="true" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
