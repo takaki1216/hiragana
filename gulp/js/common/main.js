@@ -296,12 +296,111 @@ var hiraganaArr = [
 		sound: 'mo',
 	},
 
+	// や
+	{
+		id: id++,
+		hiragana: 'や',
+		vowel: 'y',
+		consonant: 'a',
+		symbolArr: [{name: 'やぎ', img: 'goat', sound: 'goat', }, {name: 'やかん', img: 'kettle', sound: 'kettle', } ],
+		sound: 'ya',
+	},
+	{
+		id: id++,
+		hiragana: 'ゆ',
+		vowel: 'y',
+		consonant: 'u',
+		symbolArr: [{name: 'ゆきだるま', img: 'snowman', sound: 'snowman', }, ],
+		sound: 'yu',
+	},
+	{
+		id: id++,
+		hiragana: 'よ',
+		vowel: 'y',
+		consonant: 'o',
+		symbolArr: [{name: 'よる', img: 'night', sound: 'night', }, ],
+		sound: 'yo',
+	},
+
+	// ら
+	{
+		id: id++,
+		hiragana: 'ら',
+		vowel: 'r',
+		consonant: 'a',
+		symbolArr: [{name: 'らいおん', img: 'lion', sound: 'lion', }, {name: 'らいち', img: 'litchi', sound: 'litchi', } ],
+		sound: 'ra',
+	},
+	{
+		id: id++,
+		hiragana: 'り',
+		vowel: 'r',
+		consonant: 'i',
+		symbolArr: [{name: 'りんご', img: 'apple', sound: 'apple', }, {name: 'りす', img: 'squirrel', sound: 'squirrel', }, ],
+		sound: 'ri',
+	},
+	{
+		id: id++,
+		hiragana: 'る',
+		vowel: 'r',
+		consonant: 'u',
+		symbolArr: [{name: 'るうびっくきゅうぶ', img: 'rubikscube', sound: 'rubikscube', }, ],
+		sound: 'ru',
+	},
+	{
+		id: id++,
+		hiragana: 'れ',
+		vowel: 'r',
+		consonant: 'e',
+		symbolArr: [{name: 'れんこん', img: 'lotus', sound: 'lotus', }, {name: 'れいぞうこ', img: 'fridge', sound: 'fridge', }, ],
+		sound: 're',
+	},
+	{
+		id: id++,
+		hiragana: 'ろ',
+		vowel: 'r',
+		consonant: 'o',
+		symbolArr: [{name: 'ろうそく', img: 'candle', sound: 'candle', }, ],
+		sound: 'ro',
+	},
+
+	// わ
+	{
+		id: id++,
+		hiragana: 'わ',
+		vowel: 'w',
+		consonant: 'a',
+		symbolArr: [{name: 'わに', img: 'alligator', sound: 'alligator', }, {name: 'わいん', img: 'wine', sound: 'wine', } ],
+		sound: 'wa',
+	},
+	{
+		id: id++,
+		hiragana: 'を',
+		vowel: 'w',
+		consonant: 'o',
+		symbolArr: [{name: 'を', img: 'wo', sound: 'wo', }  ],
+		sound: 'wo',
+	},
+
+	// ん
+	{
+		id: id++,
+		hiragana: 'ん',
+		vowel: '',
+		consonant: 'n',
+		symbolArr: [{name: 'ん', img: 'n', sound: 'n', } ],
+		sound: 'n',
+	},
 ];
 
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 console.log('device ready');
-	$('#menu li:not(.refresh)').click(function() {
+	var $menu = $('#menu')
+	$menu.find('li:not(.refresh)').click(function() {
+		// クリックしたらメニューの中身をリロードのみに(連続で遊ぼうとするとflexsliderがなんかバグるから)
+		$menu.html('<li class="reload menu-content">やりなおし</li>');
+
 		var mode = $(this).data('mode');
 		var audioInstanceObj = {};
 	    var _pathName = '.';
@@ -310,32 +409,46 @@ console.log('device ready');
 	    }
 		var dispArr = [];
 		switch(true) {
+			// じゅんばん
 			case 'sequential' === mode:
 				dispArr = hiraganaArr;
 				break;
 
+			// ばらばら
 			case 'random' === mode:
 				dispArr = _.shuffle(hiraganaArr);
+				break;
+
+			// なまえ
+			case 'name' === mode:
+				var name = 'なまえなまえ';
+				// 大元のarrayから、hiragana が 該当のものをひらってきて順番に表示用配列に突っ込む
+				_.each(name, function(hiragana) {
+					dispArr.push(_.findWhere(hiraganaArr, {hiragana: hiragana}));
+				});
+				console.log(dispArr);
 				break;
 		}
 		var $sliderHolder = $('#slider-holder');
 		$sliderHolder.html('');
 		_.each(dispArr.reverse(), function(hiragana, key){
 			// 表示
-			var rect = '<div> <div class="hiragana-text" data-sound="' + hiragana.sound + '">' + hiragana.hiragana + '</div> <div class="symbol">' + _.shuffle(hiragana.symbolArr)[0].name + '</div> </div> ';
+			var dispSymbol = _.shuffle(hiragana.symbolArr)[0];
+			var rect = '<div> <div class="hiragana-text" data-sound="' + hiragana.sound + '">' + hiragana.hiragana + '</div> <figure class="symbol"><img src="./htdocs/images/' + dispSymbol.img + '.png"><figcaption>' + dispSymbol.name + '<figcaption></figure> </div> ';
 			$('#slider-holder').append('<li>' + rect);
 
 			// andio instance用意
 			audioInstanceObj[hiragana.sound] = new Media(_pathName + '/htdocs/sounds/' + hiragana.sound + '.wav');
 		});
 
-		// todo 仕上げる
 		// ひらがなをタップしたときの挙動
 		$('.hiragana-text').click(function() {
 			console.log($(this).data('sound'));
 			var sound = $(this).data('sound');
 			audioInstanceObj[sound].play();
 		});
+
+		// flexslider 初期化
 		$('#content-wrapper').flexslider({
 			animation: 'slide',
 			slideshow: false,
@@ -343,12 +456,10 @@ console.log('device ready');
 			directionNav: false,
 			startAt: dispArr.length - 1,
 		});
-		setTimeout(function() {
-			$('.flex-viewport').trigger('click');
-		}, 300);
 	});
 
-	$('.reload').click(function() {
+	// やりなおしボタン
+	$menu.on('click', '.reload', function() {
 		window.location.reload();
-	});
+	})
 }

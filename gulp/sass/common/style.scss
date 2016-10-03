@@ -1,6 +1,13 @@
 * {
 	margin: 0;
 	padding: 0;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+}
+
+.hide {
+	display: none;
 }
 
 body {
@@ -11,11 +18,21 @@ body {
 		display: flex;
 		height: 15%;
 		list-style: none;
-		justify-content: space-between;
-		align-items: center;
+		justify-content: space-around;
+		align-items: flex-end;
 		border-bottom: 1px solid #666;
-		li {
+		padding-bottom: 10px;
+		box-sizing: border-box;
+		.menu-content {
 			list-style: none;
+			padding: 3px 8px;
+			border-radius: 5px;
+			color: #fff;
+			background: -webkit-linear-gradient(top,  #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom,  #4c4c4c 0%,#595959 12%,#666666 25%,#474747 39%,#2c2c2c 50%,#000000 51%,#111111 60%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			&:active {
+				margin-top: 5px;
+			}
 		}
 	}
 	#content-wrapper {
@@ -27,18 +44,28 @@ body {
 			margin: 0 auto;
 			text-align: center;
 			border: 1px solid #666;
+			padding: 20px;
+			border-radius: 10px;
 			ul {
 				list-style: none;
 				li {
 					.hiragana-text {
 						font-size: 140px;
+						height: 196px;
+						&:active {
+							font-size: 130px;
+						}
+					}
+					.symbol {
+						img {
+							width: 100px;
+							height: 56px;
+							border-radius: 5px;
+						}
 					}
 				}
 			}
 		}
-	}
-	.flex-control-paging {
-		/*display: none;*/
 	}
 }
 
